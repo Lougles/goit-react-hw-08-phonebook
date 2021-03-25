@@ -9,7 +9,7 @@ import {
   createContactSuccess,
   createContactError,
   deleteContactRequest,
-  deleteContactSuccess,
+  deleteContactSuccess,   
   deleteContactError,
 } from './contact-actions';
 
@@ -19,12 +19,11 @@ const contacts = createReducer([], {
   [deleteContactSuccess]: (state, { payload }) => [
     ...state.filter(item => item.id !== Number(payload)),
   ],
+  // [logoutSucces] : () => [],
 });
-
 const filter = createReducer('', {
   [addFilterValue]: (_, { payload }) => payload,
 });
-
 const loading = createReducer(false, {
   [fetchContactRequest]: () => true,
   [fetchContactSuccess]: () => false,
@@ -36,10 +35,8 @@ const loading = createReducer(false, {
   [deleteContactSuccess]: () => false,
   [deleteContactError]: () => false,
 });
-
 const hendleError = (_, { payload }) => payload.response.data;
 const clearError = () => null;
-
 const error = createReducer(null, {
   [fetchContactRequest]: clearError,
   [fetchContactError]: hendleError,
@@ -48,7 +45,6 @@ const error = createReducer(null, {
   [deleteContactRequest]: clearError,
   [deleteContactError]: hendleError,
 });
-
 export default combineReducers({
   contacts,
   filter,

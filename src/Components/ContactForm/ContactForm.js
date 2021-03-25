@@ -8,6 +8,7 @@ class ContactForm extends Component {
     name: '',
     number: '',
   };
+
   componentDidMount (){
     this.props.fetchContacts();
   }
