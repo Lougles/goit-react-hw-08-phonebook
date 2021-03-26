@@ -4,7 +4,9 @@ import { deleteContact } from '../../redux/contact/contact-operation';
 import {getFilteredContacts, getLoading} from '../../redux/contact/contact-selectors';
 
 const ContactList = ({ contacts, deleteContact, loading }) => {
+
   const onHandleChange = e => {
+    e.preventDefault();
     deleteContact(e.target.id);
   };
   return (

@@ -9,16 +9,9 @@ import {getLoading} from '../redux/contact/contact-selectors';
 
 
 class ContactView extends Component {
-
-  state = {
-
-  }
-
   componentDidMount() {
     this.props.fetchContacts();
   }
-
-
   render() {
     return (
       <Container>
@@ -38,4 +31,5 @@ const mapDispatchToProps = {
   fetchContacts: fetchContacts,
 }
 
+// export default ContactView;
 export default connect(mapStateToProps, mapDispatchToProps)(ContactView);
